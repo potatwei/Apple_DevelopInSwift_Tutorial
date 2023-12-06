@@ -15,6 +15,8 @@
 		7F3234082B20E0F200DE5792 /* OnboardingFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3234072B20E0F200DE5792 /* OnboardingFlowUITests.swift */; };
 		7F32340A2B20E0F200DE5792 /* OnboardingFlowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3234092B20E0F200DE5792 /* OnboardingFlowUITestsLaunchTests.swift */; };
 		7F3234172B20E15000DE5792 /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3234162B20E15000DE5792 /* WelcomePage.swift */; };
+		7F3234192B20FCD100DE5792 /* FeaturesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3234182B20FCD100DE5792 /* FeaturesPage.swift */; };
+		7F32341B2B20FD1400DE5792 /* FeatureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F32341A2B20FD1400DE5792 /* FeatureCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		7F3234072B20E0F200DE5792 /* OnboardingFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowUITests.swift; sourceTree = "<group>"; };
 		7F3234092B20E0F200DE5792 /* OnboardingFlowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7F3234162B20E15000DE5792 /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
+		7F3234182B20FCD100DE5792 /* FeaturesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesPage.swift; sourceTree = "<group>"; };
+		7F32341A2B20FD1400DE5792 /* FeatureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 				7F3233EC2B20E0EF00DE5792 /* OnboardingFlowApp.swift */,
 				7F3233EE2B20E0EF00DE5792 /* ContentView.swift */,
 				7F3234162B20E15000DE5792 /* WelcomePage.swift */,
+				7F3234182B20FCD100DE5792 /* FeaturesPage.swift */,
+				7F32341A2B20FD1400DE5792 /* FeatureCard.swift */,
 				7F3233F02B20E0F100DE5792 /* Assets.xcassets */,
 				7F3233F22B20E0F100DE5792 /* Preview Content */,
 			);
@@ -261,8 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F3234172B20E15000DE5792 /* WelcomePage.swift in Sources */,
+				7F3234192B20FCD100DE5792 /* FeaturesPage.swift in Sources */,
 				7F3233EF2B20E0EF00DE5792 /* ContentView.swift in Sources */,
 				7F3233ED2B20E0EF00DE5792 /* OnboardingFlowApp.swift in Sources */,
+				7F32341B2B20FD1400DE5792 /* FeatureCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
