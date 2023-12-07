@@ -14,6 +14,7 @@ struct ContentView: View {
         VStack {
             Text("Dice Roller")
                 .font(.largeTitle.lowercaseSmallCaps().bold())
+                .foregroundStyle(.white)
             
             HStack {
                 ForEach(1...numberOfDice, id: \.self) {_ in
@@ -22,19 +23,24 @@ struct ContentView: View {
             }
             
             HStack {
-                Button("Romove Dice") {
+                Button("Romove Dice", systemImage: "minus.circle.fill") {
                     numberOfDice -= 1
                 }
                 .disabled(numberOfDice == 1)
                 
-                Button("Add Dice") {
+                Button("Add Dice", systemImage: "plus.circle.fill") {
                     numberOfDice += 1
                 }
-                .disabled(numberOfDice == 3)
+                .disabled(numberOfDice == 5)
             }
             .padding()
+            .labelStyle(.iconOnly)
+            .font(.title)
         }
         .padding()
+        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+        .background(.appBackground)
+        .tint(.white)
     }
 }
 
