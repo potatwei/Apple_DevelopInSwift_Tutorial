@@ -24,6 +24,7 @@ struct DiceView: View {
                 }
             }
             .buttonStyle(.bordered)
+            .clipShape(Capsule())
         }
     }
 }
