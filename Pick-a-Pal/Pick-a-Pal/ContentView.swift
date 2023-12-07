@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var names: [String] = []
+    @State private var savedNames: [String] = []
     @State private var nameToAdd = ""
     @State private var pickedName = ""
     @State private var shouldRemovePickedName = false
@@ -40,12 +41,37 @@ struct ContentView: View {
                 .autocorrectionDisabled()
                 .onSubmit {
                     if !nameToAdd.isEmpty {
-                        names.append(nameToAdd)
-                        nameToAdd = ""
+                        if !names.contains(nameToAdd){
+                            names.append(nameToAdd.trimmingCharacters(in: .whitespaces))
+                            nameToAdd = ""
+                        }
                     }
                 }
             
             Toggle("Remove picked names", isOn: $shouldRemovePickedName)
+            
+            HStack {
+                Button  {
+                    savedNames = names
+                    names = []
+                } label: {
+                    Text("Save List")
+                        .frame(width: 92, height: 30)
+                        .font(.title3)
+                }
+                .buttonStyle(.borderedProminent)
+                .padding(.trailing, 3)
+                
+                Button  {
+                    names = savedNames
+                    savedNames = []
+                } label: {
+                    Text("Add List")
+                        .frame(width: 92, height: 30)
+                        .font(.title3)
+                }
+                .buttonStyle(.borderedProminent)
+            }
             
             Button {
                 if names.count > 0 {
@@ -60,8 +86,7 @@ struct ContentView: View {
                 }
             } label: {
                 Text("Pick Random Name")
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 16)
+                    .frame(width: 220, height: 40)
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
