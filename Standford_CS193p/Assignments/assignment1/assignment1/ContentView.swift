@@ -8,57 +8,75 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis = ["😈", "👻", "💀","🎃","🙀","👽","☠️","🤡","👹","🍭","🤖","🧠"]
+    let halloweenTheme = ["😈", "👻", "💀","🎃","🙀","🍭","🤖","🧠","😈", "👻", "💀","🎃","🙀","🍭","🤖","🧠"]
+    let vehicleTheme = ["🚗","🚌","🚂","🚁","✈️","🚗","🚌","🚂","🚁","✈️"]
+    let spaceTheme = ["🛰️","🚀","🛸","👽","🛰️","🚀","🛸","👽"]
     
-    @State var cardCount = 4
+    @State var emojis = []
+    @State var themedColor: Color = .black
     
     var body: some View {
         VStack {
+            Text("Memorize!")
+                .font(.largeTitle)
+                .bold()
             ScrollView {
                 cards
             }
             Spacer()
-            cardCountAdjusters
+            themeChoosingButtons
         }
         .padding()
     }
     
     var cards: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
-            ForEach(0..<cardCount, id: \.self) { index in
-                CardView(content: emojis[index])
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 70))]) {
+            ForEach(0..<emojis.count, id: \.self) { index in
+                CardView(content: emojis[index] as! String)
                     .aspectRatio(2/3, contentMode: .fit)
             }
         }
-        .foregroundStyle(.orange)
+        .foregroundStyle(themedColor)
     }
 
-    var cardCountAdjusters: some View {
-        HStack {
-            cardRemover
-            Spacer()
-            cardAdder
-        }
-        .imageScale(.large)
-        .font(.largeTitle)
-    }
-    
-    func cardCountAdjuster(by offset: Int, symbol: String) -> some View {
+    func themeChoosingButton(icons: [String], name: String, symbol: String, ofColor: Color) -> some View {
         Button(action: {
-            cardCount += offset
+            emojis = icons.shuffled()
+            themedColor = ofColor
         }, label: {
-            Image(systemName: symbol)
+            VStack {
+                Image(systemName: symbol)
+                    .font(.title)
+                Text(name)
+                    .font(.subheadline)
+            }
+            .frame(width: 90.0)
         })
-        .disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
+        .imageScale(.large)
+        
     }
     
-    var cardRemover: some View{
-        cardCountAdjuster(by: -1, symbol: "minus")
+    var halloweenThemeChoosingButton: some View {
+        themeChoosingButton(icons: halloweenTheme, name: "Halloween", symbol: "person.2.crop.square.stack", ofColor: .orange)
     }
     
-    var cardAdder: some View{
-        cardCountAdjuster(by: +1, symbol: "plus")
+    var spaceThemeChoosingButton: some View {
+        themeChoosingButton(icons: spaceTheme, name: "Space", symbol: "lasso", ofColor: .blue)
     }
+    
+    var vehicleThemeChoosingButton: some View {
+        themeChoosingButton(icons: vehicleTheme, name: "Vehicle", symbol: "car.fill", ofColor: .gray)
+    }
+    
+    var themeChoosingButtons: some View {
+        HStack (alignment: .lastTextBaseline) {
+            halloweenThemeChoosingButton
+            vehicleThemeChoosingButton
+            spaceThemeChoosingButton
+        }
+        
+    }
+    
 }
 
 
