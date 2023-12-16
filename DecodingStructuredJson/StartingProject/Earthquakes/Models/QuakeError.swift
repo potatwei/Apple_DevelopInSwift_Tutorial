@@ -8,11 +8,9 @@
 
 import Foundation
 
-enum QuakeError: Error {
+enum QuakeError: Error, LocalizedError {
     case missingData
-}
-
-extension QuakeError: LocalizedError {
+    
     var errorDescription: String? {
         switch self {
         case .missingData:
@@ -23,3 +21,4 @@ extension QuakeError: LocalizedError {
         }
     }
 }
+
