@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    let halloweenTheme = ["😈", "👻", "💀","🎃","🙀","🍭","🤖","🧠","😈", "👻", "💀","🎃","🙀","🍭","🤖","🧠"]
-    let vehicleTheme = ["🚗","🚌","🚂","🚁","✈️","🚗","🚌","🚂","🚁","✈️"]
-    let spaceTheme = ["🛰️","🚀","🛸","👽","🛰️","🚀","🛸","👽"]
+    let halloweenTheme = ["😈","😈","👻","👻","💀","💀","🎃","🎃","🙀","🙀","🍭","🍭","🤖","🤖","🧠","🧠"]
+    let vehicleTheme = ["🚗","🚗","🚌","🚌","🚂","🚂","🚁","🚁","✈️","✈️"]
+    let spaceTheme = ["🛰️","🛰️","🚀","🚀","🛸","🛸","👽","👽"]
     
-    @State var emojis = []
+    @State var emojis: [String] = []
     @State var themedColor: Color = .black
     
     var body: some View {
@@ -32,7 +32,7 @@ struct ContentView: View {
     var cards: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 70))]) {
             ForEach(0..<emojis.count, id: \.self) { index in
-                CardView(content: emojis[index] as! String)
+                CardView(content: emojis[index])
                     .aspectRatio(2/3, contentMode: .fit)
             }
         }
@@ -41,7 +41,12 @@ struct ContentView: View {
 
     func themeChoosingButton(icons: [String], name: String, symbol: String, ofColor: Color) -> some View {
         Button(action: {
-            emojis = icons.shuffled()
+            emojis = []
+            let cardToShow = Int.random(in: 3..<icons.count)
+            for i in 0...cardToShow {
+                emojis.append(icons[i])
+            }
+            emojis = emojis.shuffled()
             themedColor = ofColor
         }, label: {
             VStack {
