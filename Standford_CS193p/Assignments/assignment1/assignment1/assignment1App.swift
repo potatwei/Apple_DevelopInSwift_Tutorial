@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct assignment1App: App {
+    @State private var game = MemoryGame()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MemoryGameView(game: game)
         }
     }
 }

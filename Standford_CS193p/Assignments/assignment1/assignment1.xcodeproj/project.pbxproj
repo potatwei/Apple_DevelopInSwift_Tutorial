@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F5BCFA02B37351A00CC02ED /* MemoryGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5BCF9F2B37351A00CC02ED /* MemoryGameModel.swift */; };
+		7F5BCFA22B37352A00CC02ED /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5BCFA12B37352A00CC02ED /* MemoryGame.swift */; };
 		7F989BE42B2DF07D000CA9BD /* assignment1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F989BE32B2DF07D000CA9BD /* assignment1App.swift */; };
-		7F989BE62B2DF07D000CA9BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F989BE52B2DF07D000CA9BD /* ContentView.swift */; };
+		7F989BE62B2DF07D000CA9BD /* MemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F989BE52B2DF07D000CA9BD /* MemoryGameView.swift */; };
 		7F989BE82B2DF07D000CA9BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F989BE72B2DF07D000CA9BD /* Assets.xcassets */; };
 		7F989BEB2B2DF07D000CA9BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F989BEA2B2DF07D000CA9BD /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F5BCF9F2B37351A00CC02ED /* MemoryGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameModel.swift; sourceTree = "<group>"; };
+		7F5BCFA12B37352A00CC02ED /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		7F989BE02B2DF07D000CA9BD /* assignment1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = assignment1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F989BE32B2DF07D000CA9BD /* assignment1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment1App.swift; sourceTree = "<group>"; };
-		7F989BE52B2DF07D000CA9BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7F989BE52B2DF07D000CA9BD /* MemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameView.swift; sourceTree = "<group>"; };
 		7F989BE72B2DF07D000CA9BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F989BEA2B2DF07D000CA9BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				7F989BE32B2DF07D000CA9BD /* assignment1App.swift */,
-				7F989BE52B2DF07D000CA9BD /* ContentView.swift */,
+				7F989BE52B2DF07D000CA9BD /* MemoryGameView.swift */,
+				7F5BCF9F2B37351A00CC02ED /* MemoryGameModel.swift */,
+				7F5BCFA12B37352A00CC02ED /* MemoryGame.swift */,
 				7F989BE72B2DF07D000CA9BD /* Assets.xcassets */,
 				7F989BE92B2DF07D000CA9BD /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F989BE62B2DF07D000CA9BD /* ContentView.swift in Sources */,
+				7F5BCFA22B37352A00CC02ED /* MemoryGame.swift in Sources */,
+				7F989BE62B2DF07D000CA9BD /* MemoryGameView.swift in Sources */,
+				7F5BCFA02B37351A00CC02ED /* MemoryGameModel.swift in Sources */,
 				7F989BE42B2DF07D000CA9BD /* assignment1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,11 +282,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"assignment1/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,11 +312,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"assignment1/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
