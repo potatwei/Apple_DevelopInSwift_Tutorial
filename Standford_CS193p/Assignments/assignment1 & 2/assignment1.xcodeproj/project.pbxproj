@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		7F5BCF9F2B37351A00CC02ED /* MemoryGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameModel.swift; sourceTree = "<group>"; };
 		7F5BCFA12B37352A00CC02ED /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
-		7F989BE02B2DF07D000CA9BD /* assignment1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = assignment1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F989BE02B2DF07D000CA9BD /* assignment1 & 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "assignment1 & 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F989BE32B2DF07D000CA9BD /* assignment1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment1App.swift; sourceTree = "<group>"; };
 		7F989BE52B2DF07D000CA9BD /* MemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameView.swift; sourceTree = "<group>"; };
 		7F989BE72B2DF07D000CA9BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,7 +39,7 @@
 		7F989BD72B2DF07C000CA9BD = {
 			isa = PBXGroup;
 			children = (
-				7F989BE22B2DF07D000CA9BD /* assignment1 */,
+				7F989BE22B2DF07D000CA9BD /* assignment1 & 2 */,
 				7F989BE12B2DF07D000CA9BD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,12 +47,12 @@
 		7F989BE12B2DF07D000CA9BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7F989BE02B2DF07D000CA9BD /* assignment1.app */,
+				7F989BE02B2DF07D000CA9BD /* assignment1 & 2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7F989BE22B2DF07D000CA9BD /* assignment1 */ = {
+		7F989BE22B2DF07D000CA9BD /* assignment1 & 2 */ = {
 			isa = PBXGroup;
 			children = (
 				7F989BE32B2DF07D000CA9BD /* assignment1App.swift */,
@@ -62,7 +62,7 @@
 				7F989BE72B2DF07D000CA9BD /* Assets.xcassets */,
 				7F989BE92B2DF07D000CA9BD /* Preview Content */,
 			);
-			path = assignment1;
+			path = "assignment1 & 2";
 			sourceTree = "<group>";
 		};
 		7F989BE92B2DF07D000CA9BD /* Preview Content */ = {
@@ -76,9 +76,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7F989BDF2B2DF07D000CA9BD /* assignment1 */ = {
+		7F989BDF2B2DF07D000CA9BD /* assignment1 & 2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7F989BEE2B2DF07D000CA9BD /* Build configuration list for PBXNativeTarget "assignment1" */;
+			buildConfigurationList = 7F989BEE2B2DF07D000CA9BD /* Build configuration list for PBXNativeTarget "assignment1 & 2" */;
 			buildPhases = (
 				7F989BDC2B2DF07D000CA9BD /* Sources */,
 				7F989BDD2B2DF07D000CA9BD /* Frameworks */,
@@ -88,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = assignment1;
+			name = "assignment1 & 2";
 			productName = assignment1;
-			productReference = 7F989BE02B2DF07D000CA9BD /* assignment1.app */;
+			productReference = 7F989BE02B2DF07D000CA9BD /* assignment1 & 2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -121,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7F989BDF2B2DF07D000CA9BD /* assignment1 */,
+				7F989BDF2B2DF07D000CA9BD /* assignment1 & 2 */,
 			);
 		};
 /* End PBXProject section */
@@ -279,7 +279,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"assignment1/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"assignment1 & 2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
@@ -309,7 +309,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"assignment1/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"assignment1 & 2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
@@ -344,7 +344,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7F989BEE2B2DF07D000CA9BD /* Build configuration list for PBXNativeTarget "assignment1" */ = {
+		7F989BEE2B2DF07D000CA9BD /* Build configuration list for PBXNativeTarget "assignment1 & 2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7F989BEF2B2DF07D000CA9BD /* Debug */,

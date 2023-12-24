@@ -24,12 +24,12 @@ struct MemoryGameView: View {
                     .animation(.default, value: game.cards)
             }
             HStack(spacing: 30){
-                Button("Shuffle") {
+                Button {
                     game.shuffle()
-                }
-                Button("New Game") {
+                } label: { buttonLabelFactory("Shuffle") }
+                Button {
                     game.newGame()
-                }
+                } label: { buttonLabelFactory("New Game") }
             }
         }
         .padding()
@@ -38,16 +38,30 @@ struct MemoryGameView: View {
     var cards: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
             ForEach(game.cards) { card in
-                VStack {
-                    CardView(card)
-                        .aspectRatio(2/3, contentMode: .fit)
-                        .padding(4)
-                        .onTapGesture { game.choose(card) }
-                    Text(card.hasSeen ? "True" : "False")
-                }
+                CardView(card)
+                    .aspectRatio(2/3, contentMode: .fit)
+                    .padding(4)
+                    .onTapGesture { game.choose(card) }
             }
         }
         .foregroundStyle((game.themeColor != nil) ? game.themeColor! : .black )
+    }
+    
+    func buttonLabelFactory(_ text: String) -> some View {
+        var label: some View {
+            Text(text)
+                .font(.headline)
+                .fontWeight(.semibold)
+                .foregroundStyle(.black)
+                .padding()
+                .padding(.horizontal, 20)
+                .background(
+                    Color.white
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .shadow(radius: 10)
+                )
+        }
+        return label
     }
 }
 
