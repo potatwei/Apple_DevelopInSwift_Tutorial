@@ -10,8 +10,11 @@ import SwiftUI
 @Observable class MemoryGame {
     
     private static func createMemoryGame() -> MemoryGameModel<String> {
+        // shuffle makes sure all emojis can be displaied
+        // when numberOfPairs is less than elements in emojis
         let emojis = chosenTheme.emojis.shuffled()
         return MemoryGameModel(numberOfPairsOfCards: chosenTheme.numberOfPairs) { pairIndex in
+            // when index in range return emoji on the index, else return "🧨"
             if emojis.indices.contains(pairIndex){
                 return emojis[pairIndex]
             } else {
@@ -20,6 +23,7 @@ import SwiftUI
         }
     }
     
+    // containing 6 themes
     private static var themes: [Theme] = [
         Theme(name: "Halloween", emojis: ["😈","👻","💀","🎃","🙀","🍭","🤖","🧠"],
               numberOfPairs: 8, color: "orange"),
@@ -43,6 +47,7 @@ import SwiftUI
         return game.cards
     }
     
+    // make string color to Color.
     var themeColor: Color? {
         switch MemoryGame.chosenTheme.color {
         case "orange":

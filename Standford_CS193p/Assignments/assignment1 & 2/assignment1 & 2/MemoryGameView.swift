@@ -8,22 +8,23 @@
 import SwiftUI
 
 struct MemoryGameView: View {
+    // setup viewmodel
     var game: MemoryGame
     
     var body: some View {
         VStack {
-            HStack {
+            HStack { // Theme's title and current score
                 Text(game.themeTitle)
                 Spacer()
                 Text("Score: \(game.score)")
             }
             .font(.largeTitle)
             .bold()
-            ScrollView {
+            ScrollView { // cards
                 cards
                     .animation(.default, value: game.cards)
             }
-            HStack(spacing: 30){
+            HStack(spacing: 30){ // two buttons
                 Button {
                     game.shuffle()
                 } label: { buttonLabelFactory("Shuffle") }
@@ -44,10 +45,12 @@ struct MemoryGameView: View {
                     .onTapGesture { game.choose(card) }
             }
         }
+        // if color is not defined in switch, use default color black
         .foregroundStyle((game.themeColor != nil) ? game.themeColor! : .black )
     }
     
-    func buttonLabelFactory(_ text: String) -> some View {
+    // create cool labels for buttons
+    private func buttonLabelFactory(_ text: String) -> some View {
         var label: some View {
             Text(text)
                 .font(.headline)
@@ -74,8 +77,10 @@ struct CardView: View {
     }
     
     var body: some View {
+        // front and back stack together and change opacity to "flip" the card
         ZStack {
             let base = RoundedRectangle(cornerRadius: 12)
+            // front of the card
             Group {
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 5)
@@ -85,9 +90,11 @@ struct CardView: View {
                     .aspectRatio(1, contentMode: .fit)
             }
             .opacity(card.isFaceUp ? 1 : 0)
+            // back of the card
             base.fill()
                 .opacity(card.isFaceUp ? 0 : 1)
         }
+        // make card disappear after matched
         .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
     }
 }
