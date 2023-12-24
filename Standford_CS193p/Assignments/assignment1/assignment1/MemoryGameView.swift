@@ -19,11 +19,14 @@ struct MemoryGameView: View {
                 cards
                     .animation(.default, value: game.cards)
             }
-            Button("Shuffle") {
-                game.shuffle()
+            HStack(spacing: 30){
+                Button("Shuffle") {
+                    game.shuffle()
+                }
+                Button("New Game") {
+                    game.newGame()
+                }
             }
-//            Spacer()
-//            themeChoosingButtons
         }
         .padding()
     }
@@ -37,52 +40,8 @@ struct MemoryGameView: View {
                     .onTapGesture { game.choose(card) }
             }
         }
-        .foregroundStyle(.orange)
+        .foregroundStyle((game.themeColor != nil) ? game.themeColor! : .black )
     }
-
-//    func themeChoosingButton(icons: [String], name: String, symbol: String, ofColor: Color) -> some View {
-//        Button(action: {
-//            emojis = []
-//            let cardToShow = Int.random(in: 3..<icons.count)
-//            for i in 0...cardToShow {
-//                emojis.append(icons[i])
-//            }
-//            emojis = emojis.shuffled()
-//            themedColor = ofColor
-//        }, label: {
-//            VStack {
-//                Image(systemName: symbol)
-//                    .font(.title)
-//                Text(name)
-//                    .font(.subheadline)
-//            }
-//            .frame(width: 90.0)
-//        })
-//        .imageScale(.large)
-//        
-//    }
-//    
-//    var halloweenThemeChoosingButton: some View {
-//        themeChoosingButton(icons: halloweenTheme, name: "Halloween", symbol: "person.2.crop.square.stack", ofColor: .orange)
-//    }
-//    
-//    var spaceThemeChoosingButton: some View {
-//        themeChoosingButton(icons: spaceTheme, name: "Space", symbol: "lasso", ofColor: .blue)
-//    }
-//    
-//    var vehicleThemeChoosingButton: some View {
-//        themeChoosingButton(icons: vehicleTheme, name: "Vehicle", symbol: "car.fill", ofColor: .gray)
-//    }
-//    
-//    var themeChoosingButtons: some View {
-//        HStack (alignment: .lastTextBaseline) {
-//            halloweenThemeChoosingButton
-//            vehicleThemeChoosingButton
-//            spaceThemeChoosingButton
-//        }
-//        
-//    }
-    
 }
 
 
@@ -108,6 +67,7 @@ struct CardView: View {
             base.fill()
                 .opacity(card.isFaceUp ? 0 : 1)
         }
+        .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
     }
 }
 

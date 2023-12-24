@@ -8,26 +8,59 @@
 import SwiftUI
 
 @Observable class MemoryGame {
-    //private static let halloweenTheme = ["😈","👻","💀","🎃","🙀","🍭","🤖","🧠"]
-    //private static let vehicleTheme = ["🚗","🚌","🚂","🚁","✈️"]
-    //private static let spaceTheme = ["🛰️","🚀","🛸","👽"]
-    
-    private static let cards = ["😈","👻","💀","🎃","🙀","🍭","🤖","🧠"]
     
     private static func createMemoryGame() -> MemoryGameModel<String> {
-        return MemoryGameModel(numberOfPairsOfCards: 8) { pairIndex in
-            if cards.indices.contains(pairIndex){
-                return cards[pairIndex]
+        let emojis = chosenTheme.emojis.shuffled()
+        return MemoryGameModel(numberOfPairsOfCards: chosenTheme.numberOfPairs) { pairIndex in
+            if emojis.indices.contains(pairIndex){
+                return emojis[pairIndex]
             } else {
                 return "🧨"
             }
         }
     }
     
+    private static var themes: [Theme] = [
+        Theme(name: "Halloween", emojis: ["😈","👻","💀","🎃","🙀","🍭","🤖","🧠"],
+              numberOfPairs: 8, color: "orange"),
+        Theme(name: "Vehicle", emojis: ["🚗","🚌","🚂","🚁","✈️"],
+              numberOfPairs: 6, color: "blue"),
+        Theme(name: "Space", emojis: ["🛰️","🚀","🛸","👽","☄️","🪐"],
+              numberOfPairs: 6, color: "gray"),
+        Theme(name: "Career", emojis: ["🧑‍🌾","🧑‍🍳","🧑‍🎤","🧑‍🎨","🧑‍🚒","🧑‍✈️","🧑‍🎓","🕵️","👷","💂","🧑‍🚀"],
+              numberOfPairs: 10, color: "mint"),
+        Theme(name: "Animal", emojis: ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐻‍❄️"],
+              numberOfPairs: 9, color: "red"),
+        Theme(name: "Food", emojis: ["🥐","🌽","🍓","🥘","🍖","🧇","🥑","🍟","🍜","🍣"],
+              numberOfPairs: 10, color: "yellow")
+    ]
+    
+    static var chosenTheme = themes.randomElement()!
+    
     private var game = createMemoryGame()
     
     var cards: Array<MemoryGameModel<String>.Card> {
         return game.cards
+    }
+    
+    var themeColor: Color? {
+        switch MemoryGame.chosenTheme.color {
+        case "orange":
+            return Color.orange
+        case "blue":
+            return Color.blue
+        case "gray":
+            return Color.gray
+        case "mint":
+            return Color.mint
+        case "red":
+            return Color.red
+        case "yellow":
+            return Color.yellow
+        default:
+            print("Color not defined")
+            return nil
+        }
     }
     
     // MARK: - Intents
@@ -40,5 +73,18 @@ import SwiftUI
         game.choose(card)
     }
     
+    func newGame() {
+        MemoryGame.chosenTheme = MemoryGame.themes.randomElement()!
+        game = MemoryGame.createMemoryGame()
+    }
+    
+    // MARK: - Themes
+    
+    struct Theme {
+        let name: String
+        let emojis: [String]
+        let numberOfPairs: Int
+        let color: String
+    }
     
 }
