@@ -63,6 +63,14 @@ import SwiftUI
         }
     }
     
+    var themeTitle: String {
+        MemoryGame.chosenTheme.name
+    }
+    
+    var score: Int {
+        return game.score
+    }
+    
     // MARK: - Intents
     
     func shuffle() {

@@ -9,6 +9,7 @@ import Foundation
 
 struct MemoryGameModel<CardContent> where CardContent: Equatable{ // let dont-care type be care-a-little-bit
     private(set) var cards: Array<Card>
+    private(set) var score: Int = 0
     
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = []
@@ -22,7 +23,17 @@ struct MemoryGameModel<CardContent> where CardContent: Equatable{ // let dont-ca
     
     var indexOfOneAndOnlyFaceUpCard: Int? {
         get { cards.indices.filter {index in cards[index].isFaceUp }.only }
-        set { cards.indices.forEach { cards[$0].isFaceUp = (newValue == $0) } }
+        set { 
+            cards.indices.forEach { index in
+                if cards[index].hasSeen && cards[index].isFaceUp {
+                    score -= 1
+                }
+                if !cards[index].hasSeen && cards[index].isFaceUp {
+                    cards[index].hasSeen = true
+                }
+                cards[index].isFaceUp = (newValue == index)
+            }
+        }
     }
     
     mutating func choose(_ card: Card) {
@@ -32,6 +43,7 @@ struct MemoryGameModel<CardContent> where CardContent: Equatable{ // let dont-ca
                     if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                         cards[chosenIndex].isMatched = true
                         cards[potentialMatchIndex].isMatched = true
+                        score += 2
                     }
                 } else {
                     indexOfOneAndOnlyFaceUpCard = chosenIndex
@@ -50,9 +62,10 @@ struct MemoryGameModel<CardContent> where CardContent: Equatable{ // let dont-ca
     struct Card: Identifiable, Equatable {
         var id: String
         
-        var isFaceUp: Bool = true
-        var isMatched: Bool = false
+        var isFaceUp = false
+        var isMatched = false
         var content: CardContent
+        var hasSeen = false
     }
 }
 

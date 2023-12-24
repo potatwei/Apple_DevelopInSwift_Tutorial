@@ -12,9 +12,13 @@ struct MemoryGameView: View {
     
     var body: some View {
         VStack {
-            Text("Memorize!")
-                .font(.largeTitle)
-                .bold()
+            HStack {
+                Text(game.themeTitle)
+                Spacer()
+                Text("Score: \(game.score)")
+            }
+            .font(.largeTitle)
+            .bold()
             ScrollView {
                 cards
                     .animation(.default, value: game.cards)
@@ -34,10 +38,13 @@ struct MemoryGameView: View {
     var cards: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
             ForEach(game.cards) { card in
-                CardView(card)
-                    .aspectRatio(2/3, contentMode: .fit)
-                    .padding(4)
-                    .onTapGesture { game.choose(card) }
+                VStack {
+                    CardView(card)
+                        .aspectRatio(2/3, contentMode: .fit)
+                        .padding(4)
+                        .onTapGesture { game.choose(card) }
+                    Text(card.hasSeen ? "True" : "False")
+                }
             }
         }
         .foregroundStyle((game.themeColor != nil) ? game.themeColor! : .black )
@@ -57,7 +64,7 @@ struct CardView: View {
             let base = RoundedRectangle(cornerRadius: 12)
             Group {
                 base.fill(.white)
-                base.strokeBorder(lineWidth: 2)
+                base.strokeBorder(lineWidth: 5)
                 Text(card.content)
                     .font(.system(size: 200))
                     .minimumScaleFactor(0.01)
